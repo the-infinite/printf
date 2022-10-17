@@ -147,12 +147,39 @@ int __write_ui(va_list args, int *printed)
 /**
 * __util_reverse - A utility function to reverse a string.
 * @str: The string to reverse.
-* @size: The number of characters in that string.
 * Return: @str reversed and NULL if str is an empty or NULL string.
 */
-static char *__util_reverse(char *str, int size)
+static char *__util_reverse(char *str)
 {
-	char *reversed = malloc(size);
+	char *reversed;
+
+	unsigned int i;
+
+	size_t size = 0;
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	while (str[size++] != '\0')
+		;
+
+	if (size == 0)
+	{
+		return (NULL);
+	}
+
+	/* Pad with an extra slot for the NULL terminator. */
+	reversed = malloc(sizeof(char) * (size + 1));
+
+	for (i = 0; i < size / 2; i++)
+	{
+		char tmp = str[i];
+
+		str[i] = str[size - i - 1];
+		str[size - i - 1] = tmp;
+	}
 
 	return (reversed);
 }
