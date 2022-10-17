@@ -56,15 +56,15 @@ static void __case_number(va_list args, int *printed)
 }
 
 /**
- * __case_number - Handles the case where t print a number.
+ * __case_ui - Handles the case where t print a number.
  * @args: The variadic list to eat the number from.
  * @printed: A reference to an integer that's counting the number
  * of printed characters.
  * Return: Nothing.
 */
-static void __case_unsigned(va_list args, int *printed)
+static void __case_ui(va_list args, int *printed)
 {
-	if (!__write_unsigned(args, printed))
+	if (!__write_ui(args, printed))
 	{
 		/* Tell the user we failed to write. */
 		exit(-1);
@@ -103,7 +103,7 @@ int __printf_parseString(const char *format, va_list args)
 				}	break;
 
 				case 'u': {
-					__case_unsigned(args, &printed);
+					__case_ui(args, &printed);
 				}	break;
 
 				default: { /* If it is unknown, just print as is. */

@@ -1,5 +1,7 @@
 #include "printer.h"
 
+#include <stdlib.h>
+
 /**
  * __write_char - Print a single character to the standard output stream and
  * increment the value stored in printed if we succeed.
@@ -101,14 +103,14 @@ int __write_number(va_list args, int *printed)
 }
 
 /**
-* __write_number - Prints the string value of a number to the standard
+* __write_ui - Prints the string value of a number to the standard
 * output stream as an unsigned number.
 * @args: The variadic argument list we take this number from.
 * @printed: A reference to the printed number.
 * Return: 0 if we failed to print and the length of characters printed
 * otherwise.
 */
-int __write_unsigned(va_list args, int *printed)
+int __write_ui(va_list args, int *printed)
 {
 	unsigned int value, temp, digits;
 
@@ -140,4 +142,17 @@ int __write_unsigned(va_list args, int *printed)
 
 	/* Since we made it this far, it is safe to say it worked. */
 	return (1);
+}
+
+/**
+* __util_reverse - A utility function to reverse a string.
+* @str: The string to reverse.
+* @size: The number of characters in that string.
+* Return: @str reversed and NULL if str is an empty or NULL string.
+*/
+static char *__util_reverse(char *str, int size)
+{
+	char *reversed = malloc(size);
+
+	return (reversed);
 }
