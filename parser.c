@@ -92,7 +92,7 @@ static void __case_hex(va_list args, int *printed, char upper)
  * specifiers.
  * @format: The template string.
  * @current: A pointer to the current integer.
- * @printed: The number of characters we have printed so far.
+ * @printed: The number of characters that we have printed so far.
  * @args: The list of variable arguments.
  * Return: Nothing.
 */
@@ -135,7 +135,7 @@ va_list args) {
  *
  * @format: The string to use as a template when printing to stdout.
  * @args: The of arguments bound to the print.
- * Return: the length of characters we printed after formatting.
+ * Return: the length of characters that we printed after formatting.
  */
 int __printf_parseString(const char *format, va_list args)
 {
