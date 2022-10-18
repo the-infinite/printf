@@ -6,4 +6,4 @@
 int _printf(const char *, ...);
 
 
-#endif /* Alx_Printf_H */
+#endif /* Alx_Printf_H. */
