@@ -7,4 +7,4 @@
 
 int __printf_parseString(const char *format, va_list args);
 
-#endif /*Alx_Printf_Parser */
+#endif /*Alx_Printf_Parser. */
