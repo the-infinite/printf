@@ -21,7 +21,7 @@ int __write_char(char c, int *printed)
 	if (result > 0)
 	{
 		/*
-		*Increment the number of printed characters. I am adding this here
+		*Increment the number of printed characters, I am adding this here
 		* to make it more difficult to forget to do so.
 		*/
 		++(*printed);
