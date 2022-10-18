@@ -36,7 +36,7 @@ int __write_char(char c, int *printed)
 * @n: Raise 10 to the power of n
 * Return: 10 raised to @n
 */
-int raise(int n)
+static int raise(int n)
 {
 	int ret = 1;
 

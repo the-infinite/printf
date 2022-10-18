@@ -110,9 +110,12 @@ va_list args) {
 
 		case 'P': case 'p': {
 			if (!__write_pointer(args, printed, format[*current] == 'P'))
-			{
 				exit(-1);
-			}
+		}	break;
+
+		case 'o': {
+			if (!__write_octal(args, printed))
+				exit(-1);
 		}	break;
 
 		case 'i': case 'd': {
