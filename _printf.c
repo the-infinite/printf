@@ -4,7 +4,7 @@
  * _printf - Prints a varying list of arguments of any type using the
  * template specified.
  * @format: The template string to use.
- * Return: The number of characters printed by this function or -1 if we fail
+ * Return: The number of characters printed by this function, or -1 if we fail
  * to print.
  */
 int _printf(const char *format, ...)
