@@ -118,7 +118,7 @@ int __write_pointer(va_list args, int *printed, char upper)
 		value /= 16;
 	}
 
-	ret[pos] = 0; /* Append a null character to the tail of the string. */
+	ret[pos] = 0; /* Append a null character to the tail of the string */
 	final = __util_reverse(ret, (size_t)pos);
 
 	free(ret);
