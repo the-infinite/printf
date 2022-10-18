@@ -10,4 +10,4 @@ int __write_ui(va_list args, int *printed);
 int __write_hex(va_list args, int *printed, char upper);
 int __write_pointer(va_list args, int *printed, char upper);
 
-#endif /* Alx_PrintF_PrintUtilities_H */
+#endif /* Alx_PrintF_PrintUtilities_H. */
