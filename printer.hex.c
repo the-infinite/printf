@@ -33,6 +33,8 @@ char *__util_reverse(char *str, size_t size)
 		reversed[size - i - 1] = tmp;
 	}
 
+	reversed[size] = 0;
+
 	return (reversed);
 }
 
