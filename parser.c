@@ -1,5 +1,5 @@
 #include "parser.h"
-
+#include "main.h"
 #include "printer.h"
 
 /**
@@ -116,6 +116,22 @@ va_list args) {
 		case 'o': {
 			if (!__write_octal(args, printed))
 				exit(-1);
+		}	break;
+
+		case 'r': {
+			char *arg = va_arg(args, char*);
+			int i, j;
+
+			i = 0;
+			while (arg[i++] != '\0')
+				;
+			arg = __util_reverse(arg, i);
+
+			for (j = 0; j < i; j++)
+			{
+				if (!__write_char(arg[j], printed))
+					exit(-1);
+			}
 		}	break;
 
 		case 'i': case 'd': {

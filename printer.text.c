@@ -38,3 +38,4 @@ int __write_string(va_list args, int *printed)
 
 	return (1);
 }
+
