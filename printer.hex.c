@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "printer.h"
+#include "main.h"
 
 
 /**
@@ -10,7 +11,7 @@
 * @size: The size of the string to reverse.
 * Return: @str reversed and NULL if str is an empty or NULL string.
 */
-static char *__util_reverse(char *str, size_t size)
+char *__util_reverse(char *str, size_t size)
 {
 	char *reversed;
 
