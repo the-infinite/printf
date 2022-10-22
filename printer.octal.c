@@ -21,6 +21,15 @@ int __write_octal(va_list args, int *printed)
 	value = va_arg(args, long int);
 	ret = malloc(sizeof(char) * 64);
 
+	if (value  == 0)
+	{
+		if (!__write_char('0', printed))
+			return (0);
+		if (!__write_char('0', printed))
+			return (0);
+		return (1);
+	}
+
 	while (value > 0)
 	{
 		unsigned int digit;
