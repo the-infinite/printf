@@ -66,13 +66,13 @@ int __write_number(va_list args, int *printed)
 
 	temp = va_arg(args, int);
 	digits = 0;
-	value = (unsigned) temp;
+	value = (unsigned int) temp;
 
 	if (temp < 0) /* If this number is negative */
 	{
 		if (!__write_char(45, printed))
 			return (0); /* Start with the minus sign */
-		value = (unsigned)(temp * -1); /* Absolute value only */
+		value = (unsigned int)(temp * -1); /* Absolute value only */
 	}
 
 	tValue = value;
