@@ -14,11 +14,11 @@
 */
 int __write_octal(va_list args, int *printed)
 {
-	unsigned long int value, pos = 0, i;
+	long int value, pos = 0, i;
 	const char *digits = "01234567";
 	char *ret, *final;
 
-	value = va_arg(args, unsigned int);
+	value = va_arg(args, long int);
 	ret = malloc(sizeof(char) * 64);
 
 	while (value > 0)
