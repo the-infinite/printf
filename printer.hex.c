@@ -53,13 +53,8 @@ char *__util_reverse(char *str, size_t size)
 int __write_hex(va_list args, int *printed, char upper)
 {
 	long int value, pos = 0, i;
-	char *digits;
+	char *digits = upper ? "0123456789ABCDEF" : "0123456789abcdef";
 	char *ret, *final;
-
-	if (upper)
-		digits = "0123456789ABCDEF";
-	else
-		digits = "0123456789abcdef";
 
 	value = va_arg(args, long int);
 	ret = malloc(sizeof(char) * 64);
@@ -85,12 +80,8 @@ int __write_hex(va_list args, int *printed, char upper)
 	free(ret);
 
 	for (i = 0; i < pos; i++)
-	{
 		if (!__write_char(final[i], printed))
-		{
 			return (0);
-		}
-	}
 
 	return (1);
 }
@@ -106,13 +97,8 @@ int __write_hex(va_list args, int *printed, char upper)
 int __write_pointer(va_list args, int *printed, char upper)
 {
 	unsigned long int value, pos = 0, i;
-	char *digits;
+	char *digits = upper ? "0123456789ABCDEF" : "0123456789abcdef";
 	char *ret, *final;
-
-	if (upper)
-		digits = "0123456789ABCDEF";
-	else
-		digits = "0123456789abcdef";
 
 	value = (unsigned long int) va_arg(args, void*);
 	ret = malloc(sizeof(char) * 32);
