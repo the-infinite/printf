@@ -13,7 +13,7 @@
 static void __case_default(const char *format, int current, int *printed)
 {
 	if (format[current] == 0)
-		return;
+		exit(-1);
 
 	if (!__write_char('%', printed))
 	{
@@ -154,6 +154,9 @@ va_list args) {
 		case 'u': {
 			__case_ui(args, printed);
 		}	break;
+
+		case 0:
+			break;
 
 		default: { /* If it is unknown, just print as is. */
 			__case_default(format, *current, printed);
