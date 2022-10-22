@@ -15,7 +15,7 @@ char *__util_reverse(char *str, size_t size)
 {
 	char *reversed;
 
-	unsigned int i;
+	unsigned int i, end;
 
 	if (str == NULL || size == 0)
 	{
@@ -24,13 +24,17 @@ char *__util_reverse(char *str, size_t size)
 
 	/* Pad with an extra slot for the NULL terminator. */
 	reversed = malloc(sizeof(char) * (size + 1));
+	end = size % 2 == 0 ? size / 2 : (size + 1)/2;
 
-	for (i = 0; i < size / 2; i++)
+	for (i = 0; i < end; i++)
 	{
-		char tmp = str[i];
+		if(str[i] && str[size - i - 1])
+		{
+			char tmp = str[i];
 
-		reversed[i] = str[size - i - 1];
-		reversed[size - i - 1] = tmp;
+			reversed[i] = str[size - i - 1];
+			reversed[size - i - 1] = tmp;
+		}
 	}
 
 	reversed[size] = 0;
@@ -48,7 +52,7 @@ char *__util_reverse(char *str, size_t size)
 */
 int __write_hex(va_list args, int *printed, char upper)
 {
-	unsigned int value, pos = 0, i;
+	long int value, pos = 0, i;
 	char *digits;
 	char *ret, *final;
 
@@ -57,8 +61,8 @@ int __write_hex(va_list args, int *printed, char upper)
 	else
 		digits = "0123456789abcdef";
 
-	value = va_arg(args, unsigned int);
-	ret = malloc(sizeof(char) * 32);
+	value = va_arg(args, long int);
+	ret = malloc(sizeof(char) * 64);
 
 	while (value > 0)
 	{
@@ -79,8 +83,7 @@ int __write_hex(va_list args, int *printed, char upper)
 
 	for (i = 0; i < pos; i++)
 	{
-		if (!__write_char(final[i], printed))
-		{
+		if(!__write_char(final[i], printed)) {
 			return (0);
 		}
 	}
@@ -107,7 +110,7 @@ int __write_pointer(va_list args, int *printed, char upper)
 	else
 		digits = "0123456789abcdef";
 
-	value = va_arg(args, unsigned long int);
+	value = (unsigned long int) va_arg(args, void*);
 	ret = malloc(sizeof(char) * 32);
 
 	while (value > 0)

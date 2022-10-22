@@ -10,7 +10,7 @@
  * @printed: A pointer to some integer indicating the number of characters we
  * have printed.
  *
- * Return: The number of characters printed and -1 if we failed to print.
+ * Return: The number of characters printed and 0 if we failed to print.
  */
 int __write_char(char c, int *printed)
 {

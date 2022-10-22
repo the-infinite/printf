@@ -39,3 +39,30 @@ int __write_string(va_list args, int *printed)
 	return (1);
 }
 
+/**
+ * __write_buffer - Print all chars in a buffer to the standard output stream 
+ * and increment the value stored in printed if we succeed.
+ *
+ * @buffer: The character pointer to print.
+ * @printed: A pointer to some integer indicating the number of characters we
+ * have printed.
+ *
+ * Return: The number of characters printed and 0 if we failed to print.
+ */
+int __write_buffer(char* buffer, int *printed)
+{
+	int result;
+
+	result = (write(1, buffer, 1024));
+
+	if (result > 0)
+	{
+		/*
+		*Increment the number of printed characters, I am adding this here
+		* to make it more difficult to forget to do so.
+		*/
+		++(*printed);
+	}
+
+	return (result > 0) ? result : 0;
+}
