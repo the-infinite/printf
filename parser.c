@@ -12,6 +12,9 @@
  */
 static void __case_default(const char *format, int current, int *printed)
 {
+	if (format[current] == 0)
+		return;
+
 	if (!__write_char('%', printed))
 	{
 		exit(-1);
