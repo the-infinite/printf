@@ -61,25 +61,27 @@ static int raise(int n)
 */
 int __write_number(va_list args, int *printed)
 {
-	int value, temp, digits;
+	unsigned int value, tValue;
+	int temp, digits;
 
-	value = va_arg(args, int);
+	temp = va_arg(args, int);
 	digits = 0;
+	value = (unsigned) temp;
 
-	if (value < 0) /* If this number is negative */
+	if (temp < 0) /* If this number is negative */
 	{
 		if (!__write_char(45, printed))
 			return (0); /* Start with the minus sign */
-		value = value * -1; /* Absolute value only */
+		value = (unsigned)(temp * -1); /* Absolute value only */
 	}
 
-	temp = value; /*Used to calculate the number of digits temporarily */
+	tValue = value;
 
 	while (1) /* Count the number of digits in this number */
 	{
-		temp /= 10;
+		tValue /= 10;
 		digits++;
-		if (temp < 1)
+		if (tValue < 1)
 			break;
 	}
 
