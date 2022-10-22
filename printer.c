@@ -61,10 +61,9 @@ static int raise(int n)
 */
 int __write_number(va_list args, int *printed)
 {
-	long int value, temp, digits;
+	int value, temp, digits;
 
-
-	value = va_arg(args, long int);
+	value = va_arg(args, int);
 	digits = 0;
 
 	if (value < 0) /* If this number is negative */
