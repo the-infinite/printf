@@ -28,13 +28,10 @@ char *__util_reverse(char *str, size_t size)
 
 	for (i = 0; i < end; i++)
 	{
-		if (str[i] && str[size - i - 1])
-		{
-			char tmp = str[i];
+		char tmp = str[i];
 
-			reversed[i] = str[size - i - 1];
-			reversed[size - i - 1] = tmp;
-		}
+		reversed[i] = str[size - i - 1];
+		reversed[size - i - 1] = tmp;
 	}
 
 	reversed[size] = 0;

@@ -27,7 +27,7 @@ int main(void)
     printf("Unsigned:[%u]\n", ui);
     _printf("Unsigned octal:[%o]\n", ui);
     printf("Unsigned octal:[%o]\n", ui);
-	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char*)0);
+	_printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
 	_printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
