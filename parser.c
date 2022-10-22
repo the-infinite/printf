@@ -2,6 +2,8 @@
 #include "main.h"
 #include "printer.h"
 
+#include <stdio.h>
+
 /**
  * __case_default - Handles the default case.
  * @format: Template string.
@@ -12,9 +14,6 @@
  */
 static void __case_default(const char *format, int current, int *printed)
 {
-	if (format[current] == 0)
-		exit(-1);
-
 	if (!__write_char('%', printed))
 	{
 		exit(-1);
