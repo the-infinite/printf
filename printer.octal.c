@@ -21,13 +21,8 @@ int __write_octal(va_list args, int *printed)
 	value = va_arg(args, long int);
 	ret = malloc(sizeof(char) * 64);
 
-	if (value  == 0)
+	if (value < 8)
 	{
-		if (!__write_char('0', printed))
-			return (0);
-	}
-
-	if (value < 8) {
 		if (!__write_char(value + 48, printed))
 			return (0);
 		return (1);

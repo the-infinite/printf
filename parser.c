@@ -119,12 +119,12 @@ va_list args) {
 		}	break;
 
 		case 's': {
-			if(!__write_string(args, printed))
+			if (!__write_string(args, printed))
 				exit(-1);
 		}	break;
 
 		case 'c': {
-			if(!__write_character(args, printed))
+			if (!__write_character(args, printed))
 				exit(-1);
 		}	break;
 

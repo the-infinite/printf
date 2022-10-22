@@ -24,11 +24,11 @@ char *__util_reverse(char *str, size_t size)
 
 	/* Pad with an extra slot for the NULL terminator. */
 	reversed = malloc(sizeof(char) * (size + 1));
-	end = size % 2 == 0 ? size / 2 : (size + 1)/2;
+	end = size % 2 == 0 ? size / 2 : (size + 1) / 2;
 
 	for (i = 0; i < end; i++)
 	{
-		if(str[i] && str[size - i - 1])
+		if (str[i] && str[size - i - 1])
 		{
 			char tmp = str[i];
 
@@ -83,7 +83,8 @@ int __write_hex(va_list args, int *printed, char upper)
 
 	for (i = 0; i < pos; i++)
 	{
-		if(!__write_char(final[i], printed)) {
+		if (!__write_char(final[i], printed))
+		{
 			return (0);
 		}
 	}
