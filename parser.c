@@ -118,6 +118,11 @@ va_list args) {
 				exit(-1);
 		}	break;
 
+		case 's': {
+			if(!__write_string(args, printed))
+				exit(-1);
+		}	break;
+
 		case 'r': {
 			char *arg = va_arg(args, char*);
 			int i, j;

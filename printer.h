@@ -8,6 +8,7 @@ int __write_char(char c, int *printed);
 int __write_number(va_list args, int *printed);
 int __write_ui(va_list args, int *printed);
 int __write_buffer(char *buffer, int *printed);
+int __write_string(va_list args, int *printed);
 int __write_hex(va_list args, int *printed, char upper);
 int __write_pointer(va_list args, int *printed, char upper);
 int __write_octal(va_list args, int *printed);

@@ -25,7 +25,10 @@ int __write_octal(va_list args, int *printed)
 	{
 		if (!__write_char('0', printed))
 			return (0);
-		if (!__write_char('0', printed))
+	}
+
+	if (value < 8) {
+		if (!__write_char(value + 48, printed))
 			return (0);
 		return (1);
 	}

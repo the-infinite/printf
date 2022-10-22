@@ -28,7 +28,7 @@ int __write_string(va_list args, int *printed)
 	int i;
 	char *str;
 
-	str = va_arg(args, char *);
+	str = (char *) va_arg(args, void *);
 
 	for (i = 0; str[i] != 0; i++)
 	{
@@ -66,3 +66,4 @@ int __write_buffer(char* buffer, int *printed)
 
 	return (result > 0) ? result : 0;
 }
+
