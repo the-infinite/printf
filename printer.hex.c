@@ -101,7 +101,7 @@ int __write_pointer(va_list args, int *printed, char upper)
 	ret = malloc(sizeof(char) * 32);
 
 	if (value == 0)
-		return (__write_buffer("(null)", printed));
+		return (__write_buffer("(nil)", printed));
 
 	while (value > 0)
 	{
