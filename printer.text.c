@@ -30,6 +30,9 @@ int __write_string(va_list args, int *printed)
 
 	str = (char *) va_arg(args, void *);
 
+	if (str == NULL)
+		return (__write_buffer("(null)", printed));
+
 	for (i = 0; str[i] != 0; i++)
 	{
 		if (!__write_char(str[i], printed))
@@ -51,9 +54,12 @@ int __write_string(va_list args, int *printed)
  */
 int __write_buffer(char *buffer, int *printed)
 {
-	int result;
+	int result, i = 0;
 
-	result = (write(1, buffer, 1024));
+	while (buffer[i++] != 0)
+		;
+
+	result = (write(1, buffer, i));
 
 	if (result > 0)
 	{

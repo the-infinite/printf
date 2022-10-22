@@ -64,6 +64,9 @@ int __write_hex(va_list args, int *printed, char upper)
 	value = va_arg(args, long int);
 	ret = malloc(sizeof(char) * 64);
 
+	if (value == 0)
+		return (__write_buffer("(null)", printed));
+
 	while (value > 0)
 	{
 		unsigned int digit;
@@ -113,6 +116,9 @@ int __write_pointer(va_list args, int *printed, char upper)
 
 	value = (unsigned long int) va_arg(args, void*);
 	ret = malloc(sizeof(char) * 32);
+
+	if (value == 0)
+		return (__write_buffer("(null)", printed));
 
 	while (value > 0)
 	{
